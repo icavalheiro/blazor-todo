@@ -1,0 +1,28 @@
+@inject ITodoService TodoService
+@implements IDisposable
+@page "/"
+
+<div class="todo-body">
+    <div class="title">
+        <h1>TODO</h1>
+        <div class="completed">@TodoService.GetCompletedItemsCount() <br />completed already</div>
+    </div>
+    <TodoInput />
+    <div class="container">
+        <TodoListTable />
+    </div>
+    <p class="footer-message">Drag and drop to reorder list</p>
+</div>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        TodoService.OnChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        TodoService.OnChanged -= StateHasChanged;
+    }
+}

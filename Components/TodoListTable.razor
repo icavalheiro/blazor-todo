@@ -1,0 +1,42 @@
+@inject ITodoService TodoService
+@implements IDisposable
+
+<div class="todo-list">
+    <ul>
+        @foreach (var item in TodoService.GetTodos())
+        {
+            <li>
+                <label class='@(item.Checked ? "done" : "")'>
+                    <input type="checkbox" checked="@item.Checked" @onchange="() => ToggleItem(item)">
+                    <span class="checkbox-styled"></span>
+                    @item.Name
+                </label>
+            </li>
+        }
+    </ul>
+    <div class="actions">
+        <button @onclick="ClearFinished">Clear finished</button>
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        TodoService.OnChanged += StateHasChanged;
+    }
+
+    void ToggleItem(TodoItem item)
+    {
+        TodoService.ToggleTodo(item);
+    }
+
+    void ClearFinished()
+    {
+        TodoService.RemoveAllChecked();
+    }
+
+    public void Dispose()
+    {
+        TodoService.OnChanged -= StateHasChanged;
+    }
+}

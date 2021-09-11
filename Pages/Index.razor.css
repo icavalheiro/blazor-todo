@@ -1,0 +1,47 @@
+.todo-body {
+    max-width: 650px;
+    padding: 10vw 25px 0;
+    margin: auto;
+}
+
+@media (min-width: 1024px) {
+    .todo-body {
+        padding: 100px 25px 0;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.completed {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-size: 4rem;
+    padding: 0 0 2rem;
+    letter-spacing: 1rem;
+    font-weight: bold;
+    flex: 1;
+}
+
+.footer-message {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.container {
+    background: white;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.096);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 0;
+    width: 100%;
+}

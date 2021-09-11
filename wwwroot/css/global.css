@@ -1,0 +1,11 @@
+form .validation-errors {
+    background: rgb(255, 233, 107);
+    padding: 0;
+    margin: -15px 15px 15px;
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+}
+
+form .validation-errors .validation-message {
+    padding: 0 10px 3px;
+}
